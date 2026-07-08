@@ -1,0 +1,18 @@
+{{ .Chart.Name }} has been deployed.
+
+Service: {{ include "model-monitoring.fullname" . }} (port {{ .Values.service.port }})
+
+Check status:
+  kubectl get pods -l "app.kubernetes.io/instance={{ .Release.Name }}"
+
+Port-forward and probe locally:
+  kubectl port-forward svc/{{ include "model-monitoring.fullname" . }} 8000:{{ .Values.service.port }}
+  curl http://127.0.0.1:8000/health
+  curl http://127.0.0.1:8000/metrics
+{{- if .Values.ingress.enabled }}
+
+Ingress hosts:
+{{- range .Values.ingress.hosts }}
+  http://{{ .host }}
+{{- end }}
+{{- end }}

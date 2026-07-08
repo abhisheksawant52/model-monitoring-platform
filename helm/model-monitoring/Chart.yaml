@@ -1,0 +1,16 @@
+apiVersion: v2
+name: model-monitoring
+description: A Helm chart for the model-monitoring-platform FastAPI service
+type: application
+version: 0.1.0
+appVersion: "0.1.0"
+keywords:
+  - machine-learning
+  - monitoring
+  - drift
+  - observability
+home: https://github.com/abhisheksawant52/model-monitoring-platform
+sources:
+  - https://github.com/abhisheksawant52/model-monitoring-platform
+maintainers:
+  - name: Abhishek Sawant
